@@ -34,7 +34,7 @@ const configurationsData = [
             en: 'Undetectable legit configuration for Premier/Competitive. Clean ambiance with night mode, enemy chams, and smart aimbot settings.',
             ru: 'Необнаруживаемый легит конфиг для Premier/Competitive. Чистая атмосфера с ночным режимом, врагами chams и умными настройками аимбота.'
         },
-        price: '0.85 NLE',
+        price: '1.00 NLE',
         rating: 5,
         updated: '08.02.2026',
         purchaseUrl: 'https://neverlose.cc/market/item?id=ZqcE53',
