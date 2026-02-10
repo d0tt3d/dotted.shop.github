@@ -27,6 +27,12 @@ const server = http.createServer((req, res) => {
     let filePath = req.url.split('?')[0];
 
     if (filePath === '/') {
+        res.writeHead(302, { 'Location': '/config' });
+        res.end();
+        return;
+    }
+
+    if (filePath === '/config' || filePath === '/lua') {
         filePath = '/index.html';
     }
 
@@ -38,8 +44,19 @@ const server = http.createServer((req, res) => {
     fs.readFile(fullPath, (err, data) => {
         if (err) {
             if (err.code === 'ENOENT') {
-                res.writeHead(404, { 'Content-Type': 'text/html' });
-                res.end('<h1>404 - File Not Found</h1>', 'utf-8');
+                fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
+                    if (err) {
+                        res.writeHead(404, { 'Content-Type': 'text/html' });
+                        res.end('<h1>404 - File Not Found</h1>', 'utf-8');
+                    } else {
+                        res.writeHead(200, {
+                            'Content-Type': 'text/html',
+                            'Cache-Control': 'no-store, no-cache, must-revalidate',
+                            'Expires': '0'
+                        });
+                        res.end(data, 'utf-8');
+                    }
+                });
             } else {
                 res.writeHead(500);
                 res.end(`Server Error: ${err.code}`, 'utf-8');
@@ -56,19 +73,19 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-    console.log('\x1b[32m%s\x1b[0m', `Server running at: http://${HOST}:${PORT}`);
+    console.log(`Server running at http://${HOST}:${PORT}`);
 });
 
 server.on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
-        console.error('\x1b[31m%s\x1b[0m', `Port ${PORT} is already in use.`);
+        console.error(`Port ${PORT} is already in use.`);
     } else {
-        console.error('\x1b[31m%s\x1b[0m', 'Server error:', err);
+        console.error('Server error:', err);
     }
     process.exit(1);
 });
 
 process.on('SIGINT', () => {
-    console.log('\n\n\x1b[36m%s\x1b[0m', 'Server stopped.');
+    console.log('\nServer stopped.');
     process.exit(0);
 });
