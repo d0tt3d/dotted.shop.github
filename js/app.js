@@ -2,6 +2,7 @@ class WorkshopApp {
     constructor() {
         this.init();
         this.setupImagePreview();
+        this.setupRouting();
     }
 
     init() {
@@ -9,6 +10,62 @@ class WorkshopApp {
         this.renderLua();
         this.setupSearch();
         this.setupLanguageChange();
+    }
+
+    setupRouting() {
+        // Handle initial page load
+        this.handleRoute(window.location.pathname);
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            this.handleRoute(window.location.pathname);
+        });
+
+        // Handle tab clicks
+        document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.dataset.page;
+                const path = `/${page}`;
+                
+                // Update URL without page reload
+                window.history.pushState({}, '', path);
+                
+                // Handle the route
+                this.handleRoute(path);
+            });
+        });
+    }
+
+    handleRoute(path) {
+        // Remove leading/trailing slashes and get the route
+        const route = path.replace(/^\/|\/$/g, '') || 'config';
+        
+        // Update active tab
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Update content visibility
+        document.querySelectorAll('.tab-pane').forEach(pane => {
+            pane.classList.remove('show', 'active');
+        });
+
+        if (route === 'config') {
+            document.getElementById('configs-tab').classList.add('active');
+            const configPane = document.getElementById('configs');
+            configPane.classList.add('show', 'active');
+        } else if (route === 'lua') {
+            document.getElementById('lua-tab').classList.add('active');
+            const luaPane = document.getElementById('lua');
+            luaPane.classList.add('show', 'active');
+        } else {
+            // Default to config if unknown route
+            window.history.replaceState({}, '', '/config');
+            document.getElementById('configs-tab').classList.add('active');
+            const configPane = document.getElementById('configs');
+            configPane.classList.add('show', 'active');
+        }
     }
 
     renderConfigurations() {
@@ -80,7 +137,7 @@ class WorkshopApp {
                      alt="${item.name}" 
                      data-item-id="${item.id}"
                      data-item-type="${configurationsData.includes(item) ? 'config' : 'lua'}"
-                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect width=%22400%22 height=%22200%22 fill=%22%235F9BF4%22 opacity=%220.2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%235F9BF4%22 font-size=%2220%22%3E${item.software}%3C/text%3E%3C/svg%3E'">
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect width=%22400%22 height=%22200%22 fill=%22%23B5827F%22 opacity=%220.2%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23B5827F%22 font-size=%2220%22%3E${item.software}%3C/text%3E%3C/svg%3E'">
                 
                 <div class="card-body d-flex flex-column">
                     <div class="mb-2">
