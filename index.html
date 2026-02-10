@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="/">
                 <i class="bi bi-shop me-2 fs-4"></i>
                 <span class="fw-bold">Dotteds HvH Workshop</span>
             </a>
@@ -43,16 +43,16 @@
     <main class="container py-4">
         <ul class="nav nav-pills mb-4 justify-content-center" id="shopTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="configs-tab" data-bs-toggle="pill" data-bs-target="#configs" type="button" role="tab">
+                <a class="nav-link" href="/config" id="configs-tab" data-page="config">
                     <i class="bi bi-gear-fill me-1"></i>
                     <span data-translate="configurations">Configurations</span>
-                </button>
+                </a>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="lua-tab" data-bs-toggle="pill" data-bs-target="#lua" type="button" role="tab">
+                <a class="nav-link" href="/lua" id="lua-tab" data-page="lua">
                     <i class="bi bi-code-slash me-1"></i>
                     <span data-translate="lua">Lua</span>
-                </button>
+                </a>
             </li>
         </ul>
 
@@ -68,7 +68,7 @@
         </div>
 
         <div class="tab-content" id="shopTabContent">
-            <div class="tab-pane fade show active" id="configs" role="tabpanel">
+            <div class="tab-pane fade" id="configs" role="tabpanel">
                 <div class="software-section mb-5">
                     <div class="section-header mb-4">
                         <h3 class="section-title">
@@ -194,7 +194,7 @@
             <label class="custom-checkbox">
                 <input type="checkbox" id="dontShowAgain">
                 <span class="checkmark"></span>
-                <span class="checkbox-text">Don’t show again</span>
+                <span class="checkbox-text">Don't show again</span>
             </label>
 
         </div>
