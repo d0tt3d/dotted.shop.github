@@ -10,7 +10,7 @@ const configurationsData = [
         },
         price: '1.99 NLE',
         rating: 5,
-        updated: '07.02.2026',
+        updated: '23.02.2026',
         purchaseUrl: 'https://neverlose.cc/market/item?id=7WPcun',
         features: {
             en: [
