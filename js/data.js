@@ -57,21 +57,21 @@ const configurationsData = [
         software: 'Fatality',
         image: 'images/fatality-hvh.png',
         description: {
-            en: 'Professional HvH configuration for Fatality coming soon. Stay tuned for the ultimate community server domination setup.',
-            ru: 'Профессиональный HvH конфиг для Fatality скоро выйдет. Следите за обновлениями для лучшей настройки доминирования на серверах.'
+            en: 'Professional HvH configuration for Fatality. community server domination setup.',
+            ru: 'Профессиональный HvH конфиг для Fatality. настройки доминирования на серверах.'
         },
         price: '20 fat$',
         rating: 5,
-        updated: 'Coming Soon',
-        purchaseUrl: 'https://fatality.win/',
+        updated: '27.02.2026',
+        purchaseUrl: 'https://fatality.win/workshop/%E2%9C%A8-dotteds-community-hvh-config-%E2%9C%A8.15926/view',
         features: {
             en: [
-                'Coming soon',
+                '30-50+ kill games routine',
                 'Community optimized',
-                'Advanced features'
+                'Refined settings'
             ],
             ru: [
-                'Скоро выйдет',
+                '30-50+ киллов за игру',
                 'Оптимизация для community',
                 'Расширенные функции'
             ]
