@@ -82,12 +82,12 @@ const configurationsData = [
 const luaData = [
     {
         id: 1,
-        name: 'Amba Multilua',
+        name: 'Vanished Multilua',
         software: 'Fatality',
-        image: 'images/fatality-lua.png',
+        image: 'images/vanished.png',
         description: {
-            en: 'Complete Lua pack with rage improvements, visual indicators, and utility features. Includes jumpscout, quick shoot, manual indicators, and more.',
-            ru: 'Полный Lua пак с улучшениями rage, визуальными индикаторами и полезными функциями. Включает jumpscout, quick shoot, ручные индикаторы и многое другое.'
+            en: 'Complete Lua pack with rage improvements, visual indicators, and utility features. Includes dynamic hitchance, quick shoot, manual indicators, and more.',
+            ru: 'Полный Lua пак с улучшениями rage, визуальными индикаторами и полезными функциями. Включает dynamic hitchance, quick shoot, ручные индикаторы и многое другое.'
         },
         price: '15 fat$',
         rating: 5,
@@ -95,12 +95,12 @@ const luaData = [
         purchaseUrl: 'https://fatality.win/workshop/%E2%9C%A8-amba-multilua-%E2%9C%A8.14141/view',
         features: {
             en: [
-                'Rage: Jumpscout, Quick shoot, Zeus switch',
+                'Rage: Dynamic Hitchance, DT Knife, Force Accuracy',
                 'Visuals: Logs, indicators, watermark',
                 'Misc: Freecam, knife left, config copy'
             ],
             ru: [
-                'Rage: Jumpscout, Quick shoot, Zeus switch',
+                'Rage: Dynamic Hitchance, DT Knife, Force Accuracy',
                 'Визуалы: Логи, индикаторы, водяной знак',
                 'Разное: Freecam, нож слева, копирование конфига'
             ]
