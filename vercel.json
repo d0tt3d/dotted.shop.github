@@ -1,6 +1,0 @@
-{
-    "rewrites": [
-        { "source": "/cloud/tag",  "destination": "/api/cloud/tag" },
-        { "source": "/cloud/tag/", "destination": "/api/cloud/tag" }
-    ]
-}
